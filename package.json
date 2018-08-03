@@ -1,0 +1,23 @@
+{
+  "name": "mean",
+  "version": "1.0.0",
+  "description": "mean stack todo practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FordPrefekt/mean-todo.git"
+  },
+  "author": "FordPrefekt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FordPrefekt/mean-todo/issues"
+  },
+  "homepage": "https://github.com/FordPrefekt/mean-todo#readme",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "express": "^4.16.3"
+  }
+}
