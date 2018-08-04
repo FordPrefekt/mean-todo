@@ -3,15 +3,27 @@ const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: true}))
+
+app.use(bodyParser());
+
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
+    res.sendFile(res.data)
+})
+
+app.get('/get', (req, res) => {
     db.collection('quotes').find().toArray((err, result) => {
         if(err) console.log(err)
-        console.log(result)
+        res.send(result)
     })
+})
 
-    res.sendFile(__dirname + '/index.html')
+app.post('/delete', (req, res) => {
+    db.collection('quotes').deleteOne(req.body, (request, res) => {
+        console.log(req.body, 'ONLY REQ')
+    })
+    console.log(res.json(req.body), "asdfasdfasdfasdf")
 })
 
 app.post('/quotes', (req, res) => {
@@ -22,7 +34,6 @@ app.post('/quotes', (req, res) => {
         res.redirect('/')
       })
 })
-
 
 var db;
 

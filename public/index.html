@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="App">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div ng-controller="AppController">
+        <form action="/quotes" method="POST">
+            <input type="text" name="name">
+            <input type="text" name="quote">
+            <button type="submit" ng-click="refresh()">SUBMIT</button>
+        </form>
+        <ul ng-repeat="q in quotes">
+            
+                <li>
+                    <span>{{q}}</span>
+                    <span>{{q.name}}</span>
+                    <span>{{q.quote}}</span>
+                    <button ng-click="delete(q)">DELETE</button>
+                </li>
+            
+        </ul>
+    </div>
+</body>
+
+</html>
